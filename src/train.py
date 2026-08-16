@@ -66,8 +66,8 @@ def plot_confusion_matrix(y_true, y_pred, class_names):
 def train_and_evaluate():
     # Data Augmentation & Normalization
     train_transforms = transforms.Compose([
-        transforms.RandomHorizontalFlip(),
-        transforms.RandomRotation(10),
+        transforms.RandomHorizontalFlip(), # Randomly flips images horizontally so the model learns features regardless of orientation
+        transforms.RandomRotation(10), # Slightly rotates images up to 10 degrees to increase variation and prevent overfitting.
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
