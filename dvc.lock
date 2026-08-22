@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: src/app.py
+      hash: md5
+      md5: 27c8ace3038b168e8f21585a7de04e3f
+      size: 3011
+    - path: src/evaluate.py
+      hash: md5
+      md5: a4a26d97e623ba759989bbe90d7192b6
+      size: 3123
+    outs:
+    - path: confusion_matrix.csv
+      hash: md5
+      md5: 153f400fa69e52914d260c264ceb90da
+      size: 27518
+    - path: metrics.json
+      hash: md5
+      md5: 6e32c2b4e9d32a4298b905ea87dc8037
+      size: 74

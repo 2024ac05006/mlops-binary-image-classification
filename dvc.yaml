@@ -1,0 +1,15 @@
+stages:
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+      - src/evaluate.py
+      - src/app.py
+    metrics:
+      - metrics.json:
+          cache: false
+    plots:
+      - confusion_matrix.csv:
+          template: confusion
+          x: actual
+          y: predicted
+          cache: false

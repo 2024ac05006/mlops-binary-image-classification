@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cats-dogs-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cats-dogs-app
+  template:
+    metadata:
+      labels:
+        app: cats-dogs-app
+    spec:
+      containers:
+      - name: cats-dogs-container
+        image: ghcr.io/2024ac05006/cats-dogs-service:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000

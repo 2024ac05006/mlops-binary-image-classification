@@ -53,6 +53,24 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh 'kubectl apply -f k8s/deployment.yaml'
+                sh 'kubectl apply -f k8s/service.yaml'
+                // Force Kubernetes to pull the new :latest image
+                sh 'kubectl rollout restart deployment cats-dogs-deployment'
+                sh 'kubectl rollout status deployment/cats-dogs-deployment --timeout=60s'
+            }
+        }
+        stage('Smoke Tests') {
+            steps {
+                sh '''
+                pip install requests Pillow
+                python tests/smoke_test.py
+                '''
+            }
+        }        
     }
 
     post {

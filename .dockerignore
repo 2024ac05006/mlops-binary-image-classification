@@ -1,0 +1,7 @@
+venv/
+.git/
+.dvc/
+data/raw/
+data/processed/
+.pytest_cache/
+__pycache__/
