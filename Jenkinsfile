@@ -67,10 +67,21 @@ pipeline {
                 sh '''
                 . ci_venv/bin/activate
                 pip install requests Pillow
+                
+                # 1. Open a direct tunnel from Jenkins to the K8s service in the background
+                kubectl port-forward svc/cats-dogs-service 8000:8000 &
+                
+                # 2. Give the tunnel 3 seconds to establish the connection
+                sleep 3
+                
+                # 3. Temporarily override the URL to hit our direct tunnel
+                export SMOKE_TEST_URL="http://127.0.0.1:8000"
+                
+                # 4. Run the tests (Jenkins will auto-kill the tunnel when this finishes)
                 python scripts/smoke_test.py
                 '''
             }
-        }        
+        }       
     }
 
     post {
