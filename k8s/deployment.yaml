@@ -12,9 +12,19 @@ spec:
       labels:
         app: cats-dogs-app
     spec:
-      containers:
-      - name: cats-dogs-container
-        image: ghcr.io/2024ac05006/cats-dogs-service:latest
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8000
+        containers:
+        - name: cats-dogs-container
+          image: ghcr.io/2024ac05006/cats-dogs-service:latest
+          ports:
+          - containerPort: 8000
+          
+          # Add this readiness probe block
+          readinessProbe:
+            httpGet:
+              path: /  # Update this to /health or /ping if your API uses one
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 2
+            successThreshold: 1
+            failureThreshold: 3
