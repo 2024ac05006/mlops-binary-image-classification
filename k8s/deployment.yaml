@@ -21,7 +21,7 @@ spec:
           # Add this readiness probe block
           readinessProbe:
             httpGet:
-              path: /  # Update this to /health or /ping if your API uses one
+              path: /docs  # Update this to /health or /ping if your API uses one
               port: 8000
             initialDelaySeconds: 10
             periodSeconds: 5
