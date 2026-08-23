@@ -1,0 +1,7 @@
+request_id,prediction,confidence
+902f4466,dog,0.9125
+d9d4d460,cat,0.7465
+30bd6ab0,cat,0.6991
+2c1989de,cat,0.9161
+4f3cd915,cat,0.979
+3f40f9a9,cat,0.9577

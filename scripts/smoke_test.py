@@ -36,9 +36,9 @@ def run_smoke_tests():
         files = {'file': ('smoke_test.jpg', img_bytes, 'image/jpeg')}
         res = requests.post(f"{BASE_URL}/predict", files=files)
         res.raise_for_status()
-        print(f"✅ Prediction check passed: {res.json()}")
+        print(f"Prediction check passed: {res.json()}")
     except Exception as e:
-        print(f"❌ Prediction check failed: {e}")
+        print(f"Prediction check failed: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

@@ -9,3 +9,8 @@ mlflow>=2.8.0
 dvc>=3.29.0
 pytest>=7.4.3
 numpy>=1.26.1
+prometheus-fastapi-instrumentator>=7.0.0
+evidently
+pandas>=2.0.0
+protobuf>=3.19.0,<5.0.0
+opentelemetry-proto<1.26.0
