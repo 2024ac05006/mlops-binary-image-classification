@@ -55,6 +55,11 @@ transform = transforms.Compose([
 ])
 
 # --- 2. Endpoints ---
+
+@app.get("/")
+def read_root():
+    return {"status": "healthy", "message": "Cats and Dogs ML API is running"}
+
 @app.get("/health")
 def health_check():
     """Health check endpoint."""
