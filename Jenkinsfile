@@ -66,8 +66,9 @@ pipeline {
         stage('Smoke Tests') {
             steps {
                 sh '''
+                . ci_venv/bin/activate
                 pip install requests Pillow
-                python tests/smoke_test.py
+                python scripts/smoke_test.py
                 '''
             }
         }        
