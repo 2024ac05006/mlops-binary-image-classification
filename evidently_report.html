@@ -1,0 +1,76 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MLOps Post-Deployment Evaluation Report</title>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; margin: 0; padding: 40px; }
+            .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+            h1 { color: #1a252f; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+            .metric-card { display: flex; gap: 20px; margin-top: 20px; }
+            .card { flex: 1; background: #ebf5fb; border-left: 5px solid #3498db; padding: 15px; border-radius: 6px; }
+            .card h3 { margin: 0 0 10px 0; color: #2c3e50; font-size: 14px; text-transform: uppercase; }
+            .card p { font-size: 26px; font-weight: bold; margin: 0; color: #2980b9; }
+            table { width: 100%; border-collapse: collapse; margin-top: 25px; }
+            th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+            th { background-color: #3498db; color: white; }
+            tr:nth-child(even) { background-color: #f8f9fa; }
+            pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 6px; font-size: 14px; line-height: 1.5; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Model Performance Tracking Report (Post-Deployment)</h1>
+            <p><strong>Total Real/Simulated Requests Evaluated:</strong> 6</p>
+            
+            <div class="metric-card">
+                <div class="card">
+                    <h3>Overall Accuracy</h3>
+                    <p>33.33%</p>
+                </div>
+                <div class="card">
+                    <h3>Cat Class F1-Score</h3>
+                    <p>0.50</p>
+                </div>
+                <div class="card">
+                    <h3>Dog Class F1-Score</h3>
+                    <p>0.00</p>
+                </div>
+            </div>
+
+            <h2>1. Classification Summary</h2>
+            <table>
+                <tr>
+                    <th>Class</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>F1-Score</th>
+                    <th>Support</th>
+                </tr>
+                <tr>
+                    <td><strong>Cat</strong></td>
+                    <td>0.40</td>
+                    <td>0.67</td>
+                    <td>0.50</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td><strong>Dog</strong></td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>3.0</td>
+                </tr>
+            </table>
+
+            <h2>2. Confusion Matrix</h2>
+            <pre>
+                      Predicted: CAT     Predicted: DOG
+Actual: CAT           2                1
+Actual: DOG           3                0
+            </pre>
+        </div>
+    </body>
+    </html>
+    

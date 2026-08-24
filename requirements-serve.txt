@@ -1,11 +1,15 @@
-fastapi>=0.104.1
-uvicorn>=0.23.2
-python-multipart>=0.0.6
-Pillow>=10.0.1
-numpy>=1.26.0,<2.0.0; python_version < '3.13'
-numpy>=2.0.0; python_version >= '3.13'
-prometheus-fastapi-instrumentator>=7.0.0
-evidently>=0.4.0
-pandas>=2.0.0
-protobuf>=3.19.0,<5.0.0
-opentelemetry-proto<1.26.0
+torch
+torchvision
+numpy
+pandas
+scikit-learn
+Pillow
+python-dateutil
+fastapi
+uvicorn
+python-multipart
+prometheus-fastapi-instrumentator
+evidently
+mlflow
+dvc
+pytest
