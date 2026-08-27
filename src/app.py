@@ -12,6 +12,14 @@ from prometheus_fastapi_instrumentator import Instrumentator
 import logging
 import csv
 import os
+from prometheus_client import Counter
+
+# Define counter metric with prediction_result label
+PREDICTION_COUNTER = Counter(
+    'model_predictions_total',
+    'Total number of model predictions',
+    ['prediction_result']
+)
 
 app = FastAPI(title="Cats vs Dogs Inference Service", version="1.0")
 PRED_LOG_PATH = "data/predictions.csv"
@@ -136,6 +144,8 @@ async def predict(file: UploadFile = File(...)):
 
         # Log prediction to CSV for model monitoring (Step 3)
         log_prediction(request_id, predicted_label, conf_val)
+
+        PREDICTION_COUNTER.labels(prediction_result=predicted_label).inc()
 
         return {
             "request_id": request_id,
