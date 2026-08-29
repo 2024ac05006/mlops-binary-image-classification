@@ -14,3 +14,4 @@ prometheus-fastapi-instrumentator>=7.0.0
 pandas>=2.0.0
 protobuf>=3.19.0,<5.0.0
 opentelemetry-proto<1.26.0
+kagglehub

@@ -12,9 +12,9 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 # --- Configurations & Hyperparameters ---
 PROCESSED_DIR = "data/processed"
 MODEL_SAVE_PATH = "models/baseline_cnn.pt"
-EPOCHS = 5
+EPOCHS = 6
 BATCH_SIZE = 32
-LEARNING_RATE = 0.001
+LEARNING_RATE = 0.002
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # --- 1. Baseline CNN Architecture ---
